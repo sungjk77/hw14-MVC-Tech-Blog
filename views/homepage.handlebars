@@ -1,16 +1,12 @@
 <!-- Loop over each object in the blogs array -->
 {{#each blogs as |blog| }}
-<div class="row mb-4 blog">
-  <div class="col-md-5">
-    <h2>
-      <a href="/blog/{{blog.id}}">{{blog.name}}</a>
-    </h2>
-    <p>Created by {{blog.user.name}} on {{format_date blog.date_created}}</p>
-  </div>
-  <div class="col-md-7">
-    <p>
-      {{blog.description}}
-    </p>
-  </div>
-</div>
+      <div class="card w-100 my-2 rounded">
+          <div class="row w-100 no-gutters text-light rounded-top px-2 align-middle" style="background-color: #421F64;">
+            <h5 class="col-8 col-sm-6"><a class="text-light" href="/blog/{{blog.id}}">{{blog.name}}</a></h5>
+            <h6 class="col-8 col-sm-6 text-right">Created by {{blog.user.name}} on {{format_date blog.date_created}}</h6>
+          </div>
+          <div class="card-body">
+            <p class="card-text">{{blog.description}}</p>
+          </div>
+      </div>
 {{/each}}
