@@ -11,11 +11,11 @@
     <form class="form new-blog-form">
       <div class="form-group">
         <label for="blog-name">Title:</label>
-        <input class="form-input" type="text" id="blog-name" name="blog-name" />
+        <input class="form-input w-75" type="text" id="blog-name" name="blog-name" />
       </div>
-      <div class="form-group">
+      <div class="form-group ">
         <label for="blog-desc">Share:</label>
-        <textarea class="form-input" id="blog-desc" name="blog-desc"></textarea>
+        <textarea class="form-input w-100" rows="10" id="blog-desc" name="blog-desc"></textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Post</button>
@@ -30,15 +30,47 @@
     {{#each blogs as |blog|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/blog/{{blog.id}}">{{blog.name}}</a></h4>
+        <h5><a href="/blog/{{blog.id}}">{{blog.name}}</a></h5>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
+        <button type="button" class="btn btn-sm btn-success" data-name="{{blog.name}}" data-message="{{blog.description}}" id="update" data-toggle="modal" data-target="#updateModal" data-id="{{blog.id}}">UPDATE</button>
+        <button class="btn btn-sm btn-danger" data-id="{{blog.id}}" id="delete">DELETE</button>
       </div>
     </div>
     {{/each}}
   </div>
   {{/if}}
+</div>
+
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Update Blog Post</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="updateModalTitle" class="col-form-label">Title:</label>
+            <input type="text" class="form-control" id="updateModalTitle">
+            <input type="hidden" id="updateID">
+          </div>
+          <div class="form-group">
+            <label for="updateModalText" class="col-form-label">Share:</label>
+            <textarea row="10" class="form-control" id="updateModalText"></textarea>
+          </div>
+        </div>
+      <form class="update-form">
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal">UPDATE</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 
 <script src="./js/profile.js"></script>
