@@ -16,7 +16,9 @@ const hbs = exphbs.create({ helpers });
 
 const sess = {
   secret: 'Super secret secret',
-  cookie: {},
+  cookie: {
+    maxAge: 1000*60*60*2  //set to log out automatically after 2 hours.
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
@@ -37,5 +39,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log('Now listening on: '+PORT));
 });
