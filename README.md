@@ -11,7 +11,7 @@ Table of Contents
 - [License](##📋License)
 - [Contributing](##📝Contributing)
 - [Tests](##✔️Tests)
-
+- [Screenshot](##📸Screenshot)
 
 ------------
 ## 🛠️Installation
@@ -44,3 +44,8 @@ sungjk@uw.edu
 To test the program, please run the following:
 
 NA
+
+------------
+## 📸Screenshot
+![alt text](https://raw.githubusercontent.com/sungjk77/hw14-MVC-Tech-Blog/main/assets/screenshot.JPG)
+
